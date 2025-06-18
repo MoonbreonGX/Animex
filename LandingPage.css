@@ -1,0 +1,85 @@
+ html {
+      background-color: black;
+    }
+
+    body {
+      font-family: Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .HomeIntro {
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .GetStarted {
+      border: 3px solid white;
+      padding: 10px;
+      display: inline-block;
+      margin-top: 20px;
+      color: white;
+    }
+
+    .Gallery1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      justify-items: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+      border-radius: 6px;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-weight: bold;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .image-wrapper:hover .overlay {
+      opacity: 1;
+    }
+    .start-button {
+  display: inline-block;
+  background-color: rgb(5, 172, 255);
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #0b51c9;
+}
