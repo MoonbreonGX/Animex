@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Animal Info - ANIMEX</title>
+  <link rel="stylesheet" href="animal.css" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #dff6f0, #f0fcff);
+      padding: 20px;
+      text-align: center;
+    }
+    .animal-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .back-home {
+      margin-top: 30px;
+    }
+    .back-home a {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="animal-container" id="animalInfo">
+  <h1>Loading...</h1>
+</div>
+
+<div class="back-home">
+  <a href="index.html">← Back to Home</a>
+</div>
+
+<script>
+  const animalData = {
+    "Giant Panda": {
+      image: "https://wallpapercave.com/wp/qzzL8RU.jpg",
+      description: "The giant panda is known for its striking black-and-white coat and love of bamboo."
+    },
+    "Mantis Shrimp": {
+      image: "https://th.bing.com/th/id/R.be25eb1b22d963c16293084a0206332d?...",
+      description: "Mantis shrimp have the world's fastest punch and can see polarized light."
+    },
+    "Bottlenose Dolphin": {
+      image: "https://th.bing.com/th/id/OIP.QwuqiIfw76gUJt4-Gx7ubwHaFF?...",
+      description: "Bottlenose dolphins are intelligent marine mammals known for their playful behavior."
+    },
+    "Ring-Tailed Lemur": {
+      image: "https://th.bing.com/th/id/OIP.17xpOEcXdo21n4Lq5W98MQHaFj?...",
+      description: "Ring-tailed lemurs are primates native to Madagascar with long, striped tails."
+    },
+    "Fennec Fox": {
+      image: "https://th.bing.com/th/id/OIP.fXaSJEPxS4Ugg8edy06GwQHaEo?...",
+      description: "The fennec fox is a small nocturnal fox with huge ears adapted to desert life."
+    },
+    "Lanner Falcon": {
+      image: "https://th.bing.com/th/id/OIP.7oL5nwa5VmKnH5XCkZKW7AHaFq?...",
+      description: "A fast-flying bird of prey found in Africa and parts of Asia and Europe."
+    },
+    "Giant Pacific Octopus": {
+      image: "https://www.animalspot.net/wp-content/uploads/2018/02/Giant-Pacific-Octopus.jpg",
+      description: "The largest octopus species, known for its intelligence and camouflage skills."
+    },
+    "Copperhead Snake": {
+      image: "https://th.bing.com/th/id/OIP.sZHJnHbUb9pHFC6-ntmGpwHaE8?...",
+      description: "A venomous pit viper found in North America, known for its coppery color."
+    },
+    "Guillemot": {
+      image: "https://th.bing.com/th/id/OIP.dG2E2m1sRzkOYBYsB57kfAHaHa?...",
+      description: "Guillemots are seabirds that breed on rocky cliffs and dive for fish."
+    },
+    "Pentazona Barb": {
+      image: "https://th.bing.com/th/id/OIP.2BGlklCmfRlPlsb8jO1dUQHaEK?...",
+      description: "A freshwater fish with five distinctive black vertical stripes."
+    },
+    "Snow Leopard": {
+      image: "https://th.bing.com/th/id/R.df8f86543e4cabf4401d12fc613b90ce?...",
+      description: "An elusive big cat that lives in the mountain ranges of Central and South Asia."
+    },
+    "Giant Day Gecko": {
+      image: "https://th.bing.com/th/id/OIP.duUg2mOmrwfjZoe9gsFJkgHaE0?...",
+      description: "A large, colorful gecko native to Madagascar, active during the day."
+    },
+    "Marine Iguana": {
+      image: "https://upload.wikimedia.org/wikipedia/commons/...jpg",
+      description: "The only sea-going lizard, found only in the Galápagos Islands."
+    },
+    "Giant Moray Eel": {
+      image: "https://oceananimals.org/wp-content/uploads/2021/05/Moray-Eel.jpg",
+      description: "A powerful reef predator with a snake-like body and fearsome jaws."
+    },
+    "Mandarinfish": {
+      image: "https://th.bing.com/th/id/OIP.GoEajBrjobdZYtWk4P5zEgHaFQ?...",
+      description: "Known for its vibrant colors, the mandarinfish is a small reef dweller."
+    }
+  };
+
+  function getAnimalNameFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return decodeURIComponent(params.get("name"));
+  }
+
+  const animalName = getAnimalNameFromURL();
+  const container = document.getElementById("animalInfo");
+
+  if (animalData[animalName]) {
+    const animal = animalData[animalName];
+    container.innerHTML = `
+      <h1>${animalName}</h1>
+      <img src="${animal.image}" alt="${animalName}" />
+      <p>${animal.description}</p>
+    `;
+  } else {
+    container.innerHTML = `<h1>Animal not found</h1><p>Please return to the home page and try again.</p>`;
+  }
+</script>
+
+</body>
+</html>
